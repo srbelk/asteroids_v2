@@ -10,6 +10,7 @@ class Player(CircleShape):
 
         self.rotation = 0
 
+    # set shape of player sprite
     def triangle(self) -> list[pygame.Vector2]:
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
 
@@ -23,5 +24,6 @@ class Player(CircleShape):
 
         return [a, b, c]
 
+    # draws the player sprite to the screen
     def draw(self, screen: pygame.Surface) -> None:
         pygame.draw.polygon(screen, "white", self.triangle(), LINE_WIDTH)

@@ -30,16 +30,19 @@ def main():
         log_state()
 
         for event in pygame.event.get():
-
             if event.type == pygame.QUIT:
                 return
 
+        # make the screen black
         screen.fill("black")
 
+        # add player sprite to screen
         player.draw(screen)
 
+        # present the screen to user
         pygame.display.flip()
 
+        # re-assign dt variavle. calculates frames in seconds
         dt = game_clock.tick(60) / 1000
 
 
