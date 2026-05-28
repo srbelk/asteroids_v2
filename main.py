@@ -36,13 +36,16 @@ def main():
         # make the screen black
         screen.fill("black")
 
+        # update player sprite position
+        player.update(dt)
+
         # add player sprite to screen
         player.draw(screen)
 
         # present the screen to user
         pygame.display.flip()
 
-        # re-assign dt variavle. calculates frames in seconds
+        # re-assign dt variable. calculates frames in seconds
         dt = game_clock.tick(60) / 1000
 
 
