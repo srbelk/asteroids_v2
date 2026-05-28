@@ -22,6 +22,15 @@ def main():
     # screen object, what being used to present the game
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    # group of sprites that can update
+    updatable = pygame.sprite.Group()
+
+    # group of sprites that can be drawn
+    drawable = pygame.sprite.Group()
+
+    # assign sprites with the Player class to groups
+    Player.containers = (updatable, drawable)
+
     # player object, sprite representing the user
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
@@ -36,11 +45,12 @@ def main():
         # make the screen black
         screen.fill("black")
 
-        # update player sprite position
-        player.update(dt)
+        # update sprites position
+        updatable.update(dt)
 
-        # add player sprite to screen
-        player.draw(screen)
+        # add sprites to screen
+        for sprite in drawable:
+            sprite.draw(screen)
 
         # present the screen to user
         pygame.display.flip()
