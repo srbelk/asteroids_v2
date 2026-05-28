@@ -2,6 +2,7 @@ import pygame
 
 from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from logger import log_state
+from player import Player
 
 
 def main():
@@ -21,15 +22,21 @@ def main():
     # screen object, what being used to present the game
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    # player object, sprite representing the user
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
     # game event loop
     while True:
         log_state()
 
         for event in pygame.event.get():
+
             if event.type == pygame.QUIT:
                 return
 
         screen.fill("black")
+
+        player.draw(screen)
 
         pygame.display.flip()
 
