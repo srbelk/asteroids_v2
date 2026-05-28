@@ -9,10 +9,19 @@ def main():
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
 
+    # initialize the the game
     pygame.init()
 
+    # game_clock object,tracks time in miliseconds
+    game_clock = pygame.time.Clock()
+
+    # delta time tracks the amount of time between  drawn frames
+    dt = 0.0
+
+    # screen object, what being used to present the game
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    # game event loop
     while True:
         log_state()
 
@@ -23,6 +32,8 @@ def main():
         screen.fill("black")
 
         pygame.display.flip()
+
+        dt = game_clock.tick(60) / 1000
 
 
 if __name__ == "__main__":
